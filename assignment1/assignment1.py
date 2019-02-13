@@ -49,14 +49,49 @@ class stack(singleLinkedList):
     if self.head is None:
       noValue = True
     return noValue
-  
+  def pop(self):
+    nodePointer = self.head
+    prevNodePointer = None
+    while nodePointer.next is not None: 
+      prevNodePointer = nodePointer
+      nodePointer = nodePointer.next
+    print(nodePointer.value)
+    prevNodePointer.next = None
+  def push(self, data):
+    self.addValueEnd(data)
+
+# Queue
+class quque(singleLinkedList):
+  def __init__(self, value):
+    super().__init__(value)
+  def isEmpty(self):
+    noValue = False
+    if self.head is None:
+      noValue = True
+    return noValue
+  def enqueue(self, data):
+    nodePointer = self.head
+    while nodePointer.next is not self.head:
+      
 
 # Insert contents in magicitems.txt into linked list
+# isFirst = True
+# for line in open_file:
+#   if isFirst is False: # Adds values after the first one
+#     linkList.addValueEnd(line)
+#   else: # Add the very first value
+#     linkList = singleLinkedList(line) 
+#     isFirst = False
+# linkList.printList()
+
 isFirst = True
 for line in open_file:
-  if isFirst is False: # Adds values after the first one
-    linkList.addValueEnd(line)
+  if not isFirst: # Adds values after the first one
+    stackList.addValueEnd(line)
   else: # Add the very first value
-    linkList = singleLinkedList(line) 
+    stackList = stack(line) 
     isFirst = False
-linkList.printList()
+# stackList.printList()
+# stackList.pop()
+# stackList.push("Axe")
+# stackList.printList()
