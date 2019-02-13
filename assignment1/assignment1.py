@@ -16,25 +16,31 @@ class singleLinkedList:
   # Initializing the head
   def __init__(self, value):
     self.head = node(value)
+  # Inserting new value at the front
   def addValueFront(self, data):
     newNode = node(data)
     newNode.next = self.head
   def addValueEnd(self, data): 
+    # Start at the beginning of the list
     nodePointer = self.head
+    # Find the end of the list
     while (nodePointer.next is not None):
       nodePointer = nodePointer.next
+    # Create and add new node to the end of the list
     newNode = node(data)
     nodePointer.next = newNode
+  # For debugging purpose
   def printList(self):
     nodePointer = self.head
+    # Prints the list up to the end
     while (nodePointer.next is not None):
       print(nodePointer.value)
       nodePointer = nodePointer.next
+    # Print the last value of the list
     print(nodePointer.value)
 
+# 
 isFirst = True
-# Assigning node class to an assignment for easy access
-# # headCounter = 0
 for line in open_file:
   if isFirst:
     linkList = singleLinkedList(line)
@@ -42,18 +48,3 @@ for line in open_file:
   else: 
     linkList.addValueEnd(line)
 linkList.printList()
-
-#   newNode.createNode(line)
-#   # newNode.printNode()
-#   while linkList.head is None:
-#     linkList.head = singleLinkedList()
-#     print("after while")
-#     # linkList.head = None
-#     print(linkList.head)
-    # newNode.printNode()
-    # linkList.head = nodeCreation.createNode(line)
-  
-
-  # linkList.listHead(headCounter+=1)
-  # first.printNode()
-  
