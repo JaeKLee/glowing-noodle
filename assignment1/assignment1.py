@@ -39,12 +39,24 @@ class singleLinkedList:
     # Print the last value of the list
     print(nodePointer.value)
 
-# 
+# Stack
+class stack(singleLinkedList):
+  def __init__(self, value):
+    # Initializing stack with singleLinkedList constructor
+    super().__init__(value)
+  def isEmpty(self):
+    noValue = False
+    if self.head is None:
+      noValue = True
+    return noValue
+  
+
+# Insert contents in magicitems.txt into linked list
 isFirst = True
 for line in open_file:
-  if isFirst:
-    linkList = singleLinkedList(line)
-    isFirst = False
-  else: 
+  if isFirst is False: # Adds values after the first one
     linkList.addValueEnd(line)
+  else: # Add the very first value
+    linkList = singleLinkedList(line) 
+    isFirst = False
 linkList.printList()
