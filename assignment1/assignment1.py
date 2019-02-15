@@ -34,7 +34,7 @@ class singleLinkedList:
     nodePointer = self.head
     # Prints the list up to the end
     while (nodePointer.next is not None):
-      print(nodePointer.value)
+      print(nodePointer.value, "\n")
       nodePointer = nodePointer.next
     # Print the last value of the list
     print(nodePointer.value)
@@ -95,14 +95,39 @@ class queue(singleLinkedList):
     self.addValueEnd(data)
     
     # nodePointer = beginningPointer
-  def dequeue(self, data):
+  def dequeue(self):
     nodePointer = self.head
-    if nodePointer.next is not None:
-      nodePointer = nodePointer.next
+    # if nodePointer.next is not None:
+    nodePointer = nodePointer.next
+    # print("Success")
 
-# for line in open_file:
+for line in open_file:
+  items = [line]
+  # print(items) # Output all the items 
+# splitLetters = stack(list(items[0]))
+# splitLetters.printList()
+# splitLetters.pop()
+# splitLetters.printList
 
+# queueList = queue()
+dividedLet = list(items[0])
+# stackList = stack(line) 
+i = 0
+isFirst = True
+# To iterate through the sliced list. Output should be each char
+for i in range(len(dividedLet)):
+  # stackList = stack(dividedLet[i])
+  # print(stackList)
+  if not isFirst:
+    stackList.push(dividedLet[i])
+  else:
+    # print(dividedLet[i])
+    stackList = stack(dividedLet[i])
+    isFirst = False
+  i+=1
+stackList.printList()
 
+# queueList.printList()
 
 # isFirst = True
 # for line in open_file:
@@ -125,13 +150,13 @@ class queue(singleLinkedList):
 #     isFirst = False
 # linkList.printList()
 
-isFirst = True
-for line in open_file:
-  if not isFirst: # Adds values after the first one
-    stackList.push(line)
-  else: # Add the very first value
-    stackList = stack(line) 
-    isFirst = False
+# isFirst = True
+# for line in open_file:
+#   if not isFirst: # Adds values after the first one
+#     stackList.push(line)
+#   else: # Add the very first value
+#     # stackList = stack(line) 
+#     isFirst = False
 # stackList.printList()
 # stackList.pop()
 # stackList.push("Axe")
