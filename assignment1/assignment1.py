@@ -64,7 +64,8 @@ class stack(singleLinkedList):
 class queue(singleLinkedList):
   def __init__(self, value):
     super().__init__(value)
-    self.queueLength = 100
+    self.queueHead = self.head
+
   def isEmpty(self):
     noValue = False
     if self.head is None:
@@ -72,18 +73,25 @@ class queue(singleLinkedList):
     return noValue
     
   def enqueue(self, data):
-    queueHead = self.head
-    # nodePointer 
-    # queueCounter = 1
-    # Traversing to the end
-
-
-    while (nodePointer.next is not None) and (queueCounter < self.queueLength):
-      nodePointer = nodePointer.next
+    queueCounter = 0
+    while queueCounter < 100:
+      node(None)
       queueCounter+=1
-      print(queueCounter)
+    queueLength = queueCounter
+
+    nodePointer = self.head
+    lengthCounter = 0
+    # Traversing to the end
+    while (lengthCounter < queueLength) and (nodePointer.next is not None):
+      nodePointer = nodePointer.next
+      lengthCounter+=1
+      print("test" , lengthCounter)
+    # This will point after the end to the head
+    nodePointer = self.queueHead
+    print(nodePointer)
     # Once it reaches the end, add a value
-    print(self.addValueEnd(data))
+    
+    self.addValueEnd(data)
     
     # nodePointer = beginningPointer
   def dequeue(self, data):
