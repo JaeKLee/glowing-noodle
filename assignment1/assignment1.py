@@ -73,13 +73,14 @@ class queue(singleLinkedList):
     return noValue
     
   def enqueue(self, data):
+    # Set queue limit to 100
     queueCounter = 0
     while queueCounter < 100:
       newEmtpyNode = node(None)
       newEmtpyNode.next = self.head
       queueCounter+=1
     queueLength = queueCounter
-
+    # 
     nodePointer = self.head
     lengthCounter = 0
     # Traversing to the end
@@ -90,16 +91,14 @@ class queue(singleLinkedList):
     # This will point after the end to the head
     nodePointer = self.queueHead
     print(nodePointer)
-    # Once it reaches the end, add a value
-  
+    # Once it reaches the end, add a value to the end
     self.addValueEnd(data)
     
-    # nodePointer = beginningPointer
   def dequeue(self):
+    # It will always start with head
     nodePointer = self.head
-    # if nodePointer.next is not None:
+    # Go to next node from head (removing the current node)
     nodePointer = nodePointer.next
-    # print("Success")
 
 for line in open_file:
   items = [line]
@@ -120,14 +119,19 @@ for i in range(len(dividedLet)):
   # print(stackList)
   if not isFirst:
     stackList.push(dividedLet[i])
+    queueList.enqueue(dividedLet[i])
   else:
     # print(dividedLet[i])
     stackList = stack(dividedLet[i])
+    queueList = queue(dividedLet[i])
     isFirst = False
   i+=1
 stackList.printList()
+queueList.printList()
 
-# queueList.printList()
+
+
+
 
 # isFirst = True
 # for line in open_file:
