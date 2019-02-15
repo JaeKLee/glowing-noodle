@@ -109,7 +109,7 @@ for line in open_file:
 # splitLetters.printList
 
 # queueList = queue()
-dividedLet = list(items[0])
+dividedLet = list(items[0].upper())
 # stackList = stack(line) 
 i = 0
 isFirst = True
