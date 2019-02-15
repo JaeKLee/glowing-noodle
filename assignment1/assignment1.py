@@ -75,7 +75,8 @@ class queue(singleLinkedList):
   def enqueue(self, data):
     queueCounter = 0
     while queueCounter < 100:
-      node(None)
+      newEmtpyNode = node(None)
+      newEmtpyNode.next = self.head
       queueCounter+=1
     queueLength = queueCounter
 
@@ -90,27 +91,28 @@ class queue(singleLinkedList):
     nodePointer = self.queueHead
     print(nodePointer)
     # Once it reaches the end, add a value
-    
+  
     self.addValueEnd(data)
     
     # nodePointer = beginningPointer
   def dequeue(self, data):
     nodePointer = self.head
-    prevNodePointer = None
-    while (nodePointer is not prevNodePointer):
-      prevNodePointer = nodePointer    
-    # while nodePointer.next is not self.head:
-      
-isFirst = True
-for line in open_file:
-  if not isFirst: # Adds values after the first one
-    queueList.enqueue(line)
-  else: # Add the very first value
-    queueList = queue(line) 
-    isFirst = False
-queueList.enqueue("test")
-# queueList.printList()
+    if nodePointer.next is not None:
+      nodePointer = nodePointer.next
 
+# for line in open_file:
+
+
+
+# isFirst = True
+# for line in open_file:
+#   if not isFirst: # Adds values after the first one
+#     queueList.enqueue(line)
+#   else: # Add the very first value
+#     queueList = queue(line) 
+#     isFirst = False
+# queueList.enqueue("test")
+# queueList.printList()
 
 
 # Insert contents in magicitems.txt into linked list
