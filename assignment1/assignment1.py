@@ -7,7 +7,7 @@ open_file = open("magicitems.txt", "r")
 class node:
   def __init__(self, value):
     self.value = value # Assigning object name to the value of " value "
-    self.next = None # Because whatever is created is the last node'
+    self.next = None # Because whatever is created is the last node
   def printNode(self):
     print(self.value)
 
@@ -61,18 +61,49 @@ class stack(singleLinkedList):
     self.addValueEnd(data)
 
 # Queue
-class quque(singleLinkedList):
+class queue(singleLinkedList):
   def __init__(self, value):
     super().__init__(value)
+    self.queueLength = 100
   def isEmpty(self):
     noValue = False
     if self.head is None:
       noValue = True
     return noValue
+    
   def enqueue(self, data):
+    queueHead = self.head
+    # nodePointer 
+    # queueCounter = 1
+    # Traversing to the end
+
+
+    while (nodePointer.next is not None) and (queueCounter < self.queueLength):
+      nodePointer = nodePointer.next
+      queueCounter+=1
+      print(queueCounter)
+    # Once it reaches the end, add a value
+    print(self.addValueEnd(data))
+    
+    # nodePointer = beginningPointer
+  def dequeue(self, data):
     nodePointer = self.head
-    while nodePointer.next is not self.head:
+    prevNodePointer = None
+    while (nodePointer is not prevNodePointer):
+      prevNodePointer = nodePointer    
+    # while nodePointer.next is not self.head:
       
+isFirst = True
+for line in open_file:
+  if not isFirst: # Adds values after the first one
+    queueList.enqueue(line)
+  else: # Add the very first value
+    queueList = queue(line) 
+    isFirst = False
+queueList.enqueue("test")
+# queueList.printList()
+
+
 
 # Insert contents in magicitems.txt into linked list
 # isFirst = True
@@ -87,7 +118,7 @@ class quque(singleLinkedList):
 isFirst = True
 for line in open_file:
   if not isFirst: # Adds values after the first one
-    stackList.addValueEnd(line)
+    stackList.push(line)
   else: # Add the very first value
     stackList = stack(line) 
     isFirst = False
