@@ -57,6 +57,7 @@ class stack(singleLinkedList):
       nodePointer = nodePointer.next
     print(nodePointer.value)
     prevNodePointer.next = None
+    return prevNodePointer.value
   def push(self, data):
     self.addValueEnd(data)
 
@@ -99,6 +100,7 @@ class queue(singleLinkedList):
     nodePointer = self.head
     # Go to next node from head (removing the current node)
     nodePointer = nodePointer.next
+    return nodePointer.value
 
 for line in open_file:
   items = [line]
@@ -129,7 +131,11 @@ for i in range(len(dividedLet)):
 stackList.printList()
 queueList.printList()
 
-
+x=0
+for x in range(len(dividedLet)):
+  while range(len(dividedLet)) is not None: 
+    stackPop = stackList.pop()
+    queuePop = queueList.dequeue()
 
 
 
