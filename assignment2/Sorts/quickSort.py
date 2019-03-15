@@ -21,7 +21,7 @@ def quickSort(inputList):
         comparisons+=1
         leftArray.append(i)
       elif i > pivot:
-        comparisons
+        comparisons+=1
         rightArray.append(i)
       # Check for equality since there might be another 
       # element that has the same value

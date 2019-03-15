@@ -664,4 +664,4 @@ WOOD WAND
 YE ROBE OF USELESS THINGS
 ZALES MIGHT
 
-The number of comparisons: 3699
+The number of comparisons: 6903

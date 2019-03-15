@@ -27,12 +27,15 @@ def binarySearch(inputList):
   global comparisons
   leftArray =[]
   rightArray=[]
-  midPoint = math.ceil(len(inputList) / 2)
-  if x == inputList[midPoint]:
-    comparisons+=1
-    return inputList[midPoint] 
-  else:
-    if x < inputList[midPoint]:
+  # print(inputList[midPoint])
+  if len(inputList) == 1 and x != inputList[0]:
+    return "ERROR"
+  else:  
+    midPoint = math.ceil(len(inputList) / 2)
+    if x == inputList[midPoint]:
+      comparisons+=1
+      return inputList[midPoint] 
+    elif x < inputList[midPoint]:
       comparisons+=1
       for search in range(0, midPoint):
         leftArray.append(inputList[search])
