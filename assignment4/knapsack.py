@@ -28,12 +28,7 @@ while indexCounter < len(listFile):
         if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
           capList.append(i)
   indexCounter+=1
-# print(spiceList)
-# print(priceList)
-# print(qtyList)
-# print(capList)
-# wt = qty
-# val = price
+
 class spice:
   def __init__(self, qty, price, index):
     self.qty = qty 
