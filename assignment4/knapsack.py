@@ -1,23 +1,37 @@
 import re
+x = str(input("Enter the test file: "))
 
-graph_file = open("spice.txt", "r")
+graph_file = open(x, "r")
 # Creating list of individual contents in the file
 listFile = graph_file.readlines()
 
+indexCounter = 0    
+priceList = []
+qtyList = []
+spiceList = []    
+capList = []  
 
-indexCounter = 0
 while indexCounter < len(listFile):
-  if re.search(r"red|green|blue|orange", listFile[indexCounter]):
-    test = listFile[indexCounter].split(";")
-    # print(listFile[indexCounter])
-    print(test)
-    spiceList = []
-    if re.search(r"qty", listFile[indexCounter]):
-      for x in test:
-        if re.search(r"\d", x):
-          spiceList.append(x)
-      # print(spiceList)
+  test = listFile[indexCounter].split(";")
+  for x in test:
+    newX = x.split()
+    for i in newX:
+      if re.search(r"red|green|blue|orange", i):
+        spiceList.append(i)
+      if re.search(r"price", listFile[indexCounter]):
+        if re.search(r"\d+(\.\d+)", i):
+          priceList.append(i)
+      if re.search(r"qty", listFile[indexCounter]):
+        if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
+          qtyList.append(i)
+      if re.search(r"capacity", listFile[indexCounter]):
+        if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
+          capList.append(i)
   indexCounter+=1
+print(spiceList)
+print(priceList)
+print(qtyList)
+print(capList)
 # wt = qty
 # val = price
 class spice:
@@ -42,7 +56,8 @@ class knapsack:
     totalPrice = 0
     for i in iVal: 
       curQty = int(i.qty) 
-      curPrice = int(i.price) 
+      curPrice = float(i.price)
+      capacity = int(capacity) 
       if capacity - curQty >= 0: 
         capacity -= curQty
         totalPrice += curPrice
@@ -54,12 +69,12 @@ class knapsack:
     return totalPrice
 
 if __name__ == "__main__": 
-  qty = [4, 6, 8, 2] 
-  price = [1.0, 2.0, 5.0, 9.0] 
-  capacity = 1
-
-  maxValue = knapsack.getMaxValue(qty, price, capacity) 
-  print("The capacity is: ", capacity)
-  print("Maximum price in Knapsack =", maxValue)
+  qty = qtyList#[4, 6, 8, 2] 
+  price = priceList#[1.0, 2.0, 5.0, 9.0] 
+  capacity = capList
+  for i in capList:
+    maxValue = knapsack.getMaxValue(qty, price, i) 
+    print("The capacity is: ", i)
+    print("Maximum price in Knapsack =", maxValue)
 # for i in spiceList:
 #   print(i)
