@@ -22,7 +22,7 @@ while indexCounter < len(listFile):
         if re.search(r"\d+(\.\d+)", i):
           priceList.append(i)
       if re.search(r"qty", listFile[indexCounter]):
-        if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
+        if re.search(r"\b(?<!\.)\d+(?!\.)\b", i): # Regex credit to Wiktor Stribizew
           qtyList.append(i)
       if re.search(r"capacity", listFile[indexCounter]):
         if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
@@ -46,15 +46,15 @@ class spice:
 class knapsack:
   @staticmethod
   def getMaxValue(qty, price, capacity):
-    iVal = [] 
+    knapsackBag = [] 
     for i in range(len(qty)): 
-      iVal.append(spice(qty[i], price[i], i)) 
+      knapsackBag.append(spice(qty[i], price[i], i)) 
 
     # sorting items by price 
-    iVal.sort(reverse = True)
+    knapsackBag.sort(reverse = True)
 
     totalPrice = 0
-    for i in iVal: 
+    for i in knapsackBag: 
       curQty = int(i.qty) 
       curPrice = float(i.price)
       capacity = int(capacity) 
@@ -76,5 +76,4 @@ if __name__ == "__main__":
     maxValue = knapsack.getMaxValue(qty, price, i) 
     print("The capacity is: ", i)
     print("Maximum price in Knapsack =", maxValue)
-# for i in spiceList:
-#   print(i)
+
