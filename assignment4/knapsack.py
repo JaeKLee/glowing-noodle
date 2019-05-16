@@ -28,10 +28,10 @@ while indexCounter < len(listFile):
         if re.search(r"\b(?<!\.)\d+(?!\.)\b", i):
           capList.append(i)
   indexCounter+=1
-print(spiceList)
-print(priceList)
-print(qtyList)
-print(capList)
+# print(spiceList)
+# print(priceList)
+# print(qtyList)
+# print(capList)
 # wt = qty
 # val = price
 class spice:
